@@ -32,23 +32,20 @@
   programs.starship = {
     enable = true;
     settings = {
-      add_newline = true;
-      
-      format = "$username$directory$character";
+            
+      format = "$username$directory\n$character";
       right_format = "$git_branch$git_status";      
 
       character = {
-        success_symbol = "[➜](#9ece6a)";
-        error_symbol = "[➜](#f7768e)";
+        success_symbol = "[❯](bold #9ece6a)";
+        error_symbol = "[❯](bold #f7768e)";
       };
       username = {
         show_always = true;
         format = "[$user](bold #7aa2f7)@";
       };
       directory = {
-        format = "[$path](bold #e0af68) ";
-        truncation_length = 0;
-        truncate_to_repo = false;
+        format = "[$path](bold #e0af68)";
       };
       git_branch = {
         format = "[$symbol$branch](bold #9ece6a)";
