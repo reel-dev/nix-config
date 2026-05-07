@@ -41,38 +41,26 @@ wsl --shutdown
 ### 3. Install Nix
 
 ```sh
-sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
-```
-
-Enable Flakes:
-
-```sh
 mkdir -p ~/.config/nix
 echo "experimental-features = nix-command flakes" >> ~/.config/nix/nix.conf
-```
-
-### 4. Set up SSH key for GitHub
-
-```sh
-ssh-keygen -t ed25519 -C "your@email.com"
-cat ~/.ssh/id_ed25519.pub
+sh <(curl --proto '=https' --tlsv1.2 -L https://nixos.org/nix/install) --daemon
+nix run nixpkgs#git -- clone https://github.com/reel-dev/nix-config.git
 ```
 
 Add the output to: GitHub → Settings → SSH and GPG Keys → New SSH Key
 
-### 5. Restore configuration
+### 4. Restore configuration
 
 ```sh
-nix run nixpkgs#git -- clone git@github.com:reel-dev/nix-config.git
 cd nix-config
 nix run home-manager/master -- switch --flake .
 ```
 
-### 6. Set zsh as default shell
+### 5. Set fish as default shell
 
 ```sh
-echo "/home/yourname/.nix-profile/bin/zsh" >> /etc/shells
-chsh -s /home/yourname/.nix-profile/bin/zsh yourname
+echo "/home/yourname/.nix-profile/bin/fish" >> /etc/shells
+chsh -s /home/yourname/.nix-profile/bin/fish yourname
 ```
 
 Restart WSL — done. Everything is reproduced automatically.
