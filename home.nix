@@ -6,6 +6,7 @@
   home.stateVersion = "25.11";
   home.packages = [
     pkgs.openssh
+    pkgs.ghc
   ];
 
   home.file = {
