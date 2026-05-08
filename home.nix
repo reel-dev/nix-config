@@ -23,10 +23,11 @@
       };
     };
   };  
-  programs.zsh = {
+  programs.fish = {
     enable = true;
-    initContent = ''
-      export TERM=xterm-256color
+    interactiveShellInit = ''
+      fish_add_path /nix/var/nix/profiles/default/bin
+      fish_add_path $HOME/.nix-profile/bin
     '';
   };
   programs.starship = {
