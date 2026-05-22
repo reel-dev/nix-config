@@ -1,5 +1,5 @@
 {
-  description = "Home Manager configuration of reel";
+  description = "Home Manager configuration of rene_elbracht";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
@@ -16,7 +16,7 @@
       pkgs = nixpkgs.legacyPackages.${system};
     in
     {
-      homeConfigurations."reel" = home-manager.lib.homeManagerConfiguration {
+      homeConfigurations."rene_elbracht" = home-manager.lib.homeManagerConfiguration {
         inherit pkgs;
 
         modules = [ ./home.nix ];

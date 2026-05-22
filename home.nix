@@ -1,12 +1,13 @@
 { config, pkgs, ... }:
 
 {
-  home.username = "reel";
-  home.homeDirectory = "/home/reel";
+  home.username = "rene_elbracht";
+  home.homeDirectory = "/home/rene_elbracht";
   home.stateVersion = "25.11";
-  home.packages = [
-    pkgs.openssh
-    pkgs.ghc
+  home.packages = with pkgs; [
+    openssh
+    ghc
+    gprolog
   ];
 
   home.file = {
